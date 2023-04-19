@@ -10,7 +10,6 @@ def main():
     api = tradeapi.REST(API_KEY, SECRET_KEY, BASE_URL, api_version='v2')
 
     while True:
-        #RsiAlgo(api)
         # Wait for next trading day
         clock = api.get_clock()
         next_open = clock.next_open
@@ -18,9 +17,11 @@ def main():
 
         # Calculate time until the next market open and add a small buffer (e.g., 60 seconds)
         wait_time = (next_open - current_time).total_seconds() + 60
-        print('now i slumber..')
         # Sleep until the next trading day
         time.sleep(wait_time)
+        
+        #Trading day opens! Run the algo(s)
+        RsiAlgo(api)
     
 main()
 
