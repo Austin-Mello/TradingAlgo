@@ -1,15 +1,16 @@
-import pandas as pd
-#import time
 from Config import *
 from AlgoTraderRSI import RsiAlgo
+import alpaca_trade_api as tradeapi
+import time
 
 
 
 def main():
     # Set up trading loop
+    api = tradeapi.REST(API_KEY, SECRET_KEY, BASE_URL, api_version='v2')
+
     while True:
-        RsiAlgo(API_KEY, SECRET_KEY, BASE_URL)
-        
+        #RsiAlgo(api)
         # Wait for next trading day
         clock = api.get_clock()
         next_open = clock.next_open
@@ -17,7 +18,7 @@ def main():
 
         # Calculate time until the next market open and add a small buffer (e.g., 60 seconds)
         wait_time = (next_open - current_time).total_seconds() + 60
-
+        print('now i slumber..')
         # Sleep until the next trading day
         time.sleep(wait_time)
     

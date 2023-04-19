@@ -12,9 +12,7 @@ import pandas as pd
 import ta
 from os.path import exists
 
-def RsiAlgo(API_KEY, SECRET_KEY, BASE_URL):
-    api = tradeapi.REST(API_KEY, SECRET_KEY, BASE_URL, api_version='v2')
-    #Preston, see edge cases in main for how we want to order buy and sell
+def RsiAlgo(api):
     RsiBuy(api)
     RsiSell(api)
 
