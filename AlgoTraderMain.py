@@ -20,9 +20,9 @@ def main():
         # Sleep until the next trading day
         time.sleep(wait_time)
         
-        #Trading day opens! Run the algo(s)
+        #Trading day opens! Fire up the algo(s)
         RsiAlgo(api)
-    
+            
 main()
 
 
