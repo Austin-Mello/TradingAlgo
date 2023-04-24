@@ -17,9 +17,8 @@ import pytz
 import time
 
 def RsiAlgo(api):
-    print('boner')
-    #RsiBuy(api)
-    #RsiSell(api)
+    RsiBuy(api)
+    RsiSell(api)
 
 def RsiBuy(api): 
     #Get the start and end dates for today and yesterday.
